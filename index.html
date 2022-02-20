@@ -1,87 +1,109 @@
 <!DOCTYPE html>
-<html lang="en-us">
+
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | SCG_mapbox</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <title>New Project</title>
+    <meta property="og:title" content="New Project" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style>
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}
+    </style>
+    <style>
+      @font-face {
+        font-family:'SCG' ;
+        src: url(fonts/SCG-Reg.otf);
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family:'SCG-bol' ;
+        src: url(fonts/SCG-Bol.otf);
+        font-style: normal;
+      }
+
+      html {
+        font-family:'SCG';
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+    <div>
+      <link href="./home.css" rel="stylesheet" />
+
+      <div class="home-container">
+        <div class="home-container01">
+          <div class="home-container02">
+            <span class="home-text">
+              <span>UNDERGROUND</span>
+              <br />
+              <span>INFRASTRUCTURE</span>
+            </span>
+            <span class="home-text04"><span>INFORMATION PLATFORM</span></span>
+            <span class="home-text06">
+              <span>
+                all-in-one super platform for ecosystem in underground
+                infrastruture
+              </span>
+            </span>
+            <img
+              alt="image"
+              src="public/playground_assets/logo-800w.png"
+              class="home-image"
+            />
+          </div>
+          <div class="home-container03">
+            <span class="home-text08">บริหารจัดการข้อมูล</span>
+          </div>
+          <div class="home-container04"></div>
+        </div>
+        <div class="home-container05">
+          <div class="home-container06"></div>
+          <a href="visualisation.html" class="home-navlink">
+            <div class="home-container07">
+              <span class="home-text09">3D Visualisation</span>
+            </div>
+          </a>
+          <div class="home-container08"></div>
+          <div class="home-container09">
+            <span class="home-text10">ขออนุญาตปฏิบัติงาน</span>
+          </div>
+          <div class="home-container10"></div>
+          <div class="home-container11">
+            <span class="home-text11">ติดต่อเรา</span>
+          </div>
+        </div>
+        <div class="home-container12">
+          <div class="home-container13"></div>
+          <div class="home-container14"></div>
+          <div class="home-container15">
+            <span class="home-text12">บริหารจัดการข้อมูล</span>
+          </div>
+          <div class="home-container16"></div>
+          <div class="home-container17"></div>
+          <div class="home-container18"></div>
         </div>
       </div>
-      <div id="unity-mobile-warning">
-        WebGL builds are not supported on mobile devices.
-      </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">SCG_mapbox</div>
-      </div>
     </div>
-    <script>
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/scg.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/scg.data.gz",
-        frameworkUrl: buildUrl + "/scg.framework.js.gz",
-        codeUrl: buildUrl + "/scg.wasm.gz",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "SCG_mapbox",
-        productVersion: "0.1",
-      };
-
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var mobileWarning = document.querySelector("#unity-mobile-warning");
-
-      // By default Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        container.className = "unity-mobile";
-        // Avoid draining fillrate performance on mobile devices,
-        // and default/override low DPI mode on mobile browsers.
-        config.devicePixelRatio = 1;
-        mobileWarning.style.display = "block";
-        setTimeout(() => {
-          mobileWarning.style.display = "none";
-        }, 5000);
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
-        });
-      };
-      document.body.appendChild(script);
-    </script>
   </body>
 </html>
