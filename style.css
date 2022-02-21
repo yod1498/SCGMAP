@@ -34,7 +34,6 @@
   --dl-space-space-threeunits: 48px;
   --dl-space-space-oneandhalfunits: 24px;
 }
-
 .button {
   color: var(--dl-color-gray-black);
   display: inline-block;
@@ -78,7 +77,7 @@
 }
 .content {
   font-size: 16px;
-  font-family:'SCG';
+  font-family: Inter;
   font-weight: 400;
   line-height: 1.15;
   text-transform: none;
@@ -86,7 +85,7 @@
 }
 .heading {
   font-size: 32px;
-  font-family:'SCG';
+  font-family: Inter;
   font-weight: 700;
   line-height: 1.15;
   text-transform: none;
